@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Notes</h1>
+
+        <!-- SQL happening: INSERT -->
+        <section class="card" id="add-section">
+            <h2>Add a Note</h2>
+            <input type="text" id="title" placeholder="Title" maxlength="100">
+            <textarea id="body" placeholder="Write your note here..." rows="4"></textarea>
+            <button id="add-btn">Save Note</button>
+            <p class="sql-hint">SQL: <code>INSERT INTO notes (title, body) VALUES (?, ?)</code></p>
+        </section>
+
+        <!-- SQL happening: SELECT with optional WHERE LIKE -->
+        <section class="card" id="search-section">
+            <h2>Your Notes</h2>
+            <div class="search-row">
+                <input type="text" id="search" placeholder="Search notes...">
+                <button id="clear-btn">Clear</button>
+            </div>
+            <p class="sql-hint" id="search-hint">SQL: <code>SELECT * FROM notes ORDER BY id DESC</code></p>
+            <div id="notes-list"></div>
+        </section>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
